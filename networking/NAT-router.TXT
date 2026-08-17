@@ -1,0 +1,37 @@
+! NAT-Router configuration
+! Provides outbound NAT/PAT for AZ1's private and DB subnets
+!
+hostname NAT-Router
+!
+interface GigabitEthernet0/0
+ description Inside - Public Subnet - 10.0.0.0/24
+ ip address 10.0.0.2 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description RESERVED Outside - future uplink to Core/Edge router
+ no ip address
+ shutdown
+! When this interface is connected and addressed in the next phase,
+! add: ip nat outside
+!
+! NAT overload rule - source addresses matching NAT-ACL are PAT'd
+! out the (future) outside interface once it is connected and addressed
+ip nat inside source list NAT-ACL interface GigabitEthernet0/1 overload
+!
+ip access-list standard NAT-ACL
+ permit 10.0.0.0 0.0.15.255
+!
+line vty 0 4
+ password cisco
+ login
+ transport input telnet
+!
+line con 0
+ password cisco
+ login
+!
+enable secret class
+!
+end
