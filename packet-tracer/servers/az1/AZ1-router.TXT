@@ -1,0 +1,38 @@
+! AZ1-Router configuration
+! Gateway for all 3 tiers in Availability Zone 1
+!
+hostname AZ1-Router
+!
+interface GigabitEthernet0/0
+ description Public Subnet - 10.0.0.0/24
+ ip address 10.0.0.1 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description Private-App Subnet - 10.0.1.0/24
+ ip address 10.0.1.1 255.255.255.0
+ no shutdown
+!
+interface GigabitEthernet0/2
+ description DB Subnet - 10.0.2.0/24
+ ip address 10.0.2.1 255.255.255.0
+ no shutdown
+!
+! NOTE: 2911 has only 3 onboard GigabitEthernet ports (Gi0/0-0/2), all in
+! use above. A WIC/NM module will be needed later for the Core/Edge uplink.
+!
+! Default route: send all outbound/internet-bound traffic to NAT-Router
+ip route 0.0.0.0 0.0.0.0 10.0.0.2
+!
+line vty 0 4
+ password cisco
+ login
+ transport input telnet
+!
+line con 0
+ password cisco
+ login
+!
+enable secret class
+!
+end
