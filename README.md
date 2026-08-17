@@ -30,7 +30,6 @@ See [`docs/architecture/network-architecture.md`](docs/architecture/network-arch
 docs/                  Architecture docs, AWS comparison notes, diagrams, troubleshooting log
 packet-tracer/         .pkt project file, exported device configs, per-AZ server configs
 networking/            Subnet addressing, routing, NAT, firewall, load-balancer, DNS design docs
-monitoring/            Notes on monitoring approach and Packet Tracer limitations
 scripts/               Process docs for exporting configs
 tests/                 Manual test procedures (connectivity, routing, security, failover)
 .github/workflows/     Documentation linting
