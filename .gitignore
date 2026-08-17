@@ -1,0 +1,24 @@
+# Packet Tracer
+*.pka
+*.pkt.bak
+*.pkz
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# Local environment / secrets
+.env
+
+# Exported configs backups
+*.bak
+*~
