@@ -1,0 +1,262 @@
+# VPC Addressing Plan
+# AWS VPC Lab - Cisco Packet Tracer
+
+vpc:
+  name: "AWS-VPC-Lab"
+  cidr: "10.0.0.0/16"
+
+availability_zones:
+  az1:
+    name: "AZ1"
+    cidr: "10.0.0.0/20"
+    subnets:
+      public:
+        name: "AZ1-Public"
+        cidr: "10.0.0.0/24"
+        gateway: "10.0.0.1"
+        devices:
+          - name: "AZ1-Router"
+            ip: "10.0.0.1"
+            role: "gateway"
+          - name: "AZ1-NAT"
+            ip: "10.0.0.2"
+            role: "nat"
+          - name: "AZ1-LB"
+            ip: "10.0.0.10"
+            role: "load-balancer"
+      private_app:
+        name: "AZ1-Private-App"
+        cidr: "10.0.1.0/24"
+        gateway: "10.0.1.1"
+        devices:
+          - name: "AZ1-Router"
+            ip: "10.0.1.1"
+            role: "gateway"
+          - name: "AZ1-App-Server-1"
+            ip: "10.0.1.10"
+            role: "app-server"
+          - name: "AZ1-App-Server-2"
+            ip: "10.0.1.11"
+            role: "app-server"
+      private_db:
+        name: "AZ1-Private-DB"
+        cidr: "10.0.2.0/24"
+        gateway: "10.0.2.1"
+        devices:
+          - name: "AZ1-Router"
+            ip: "10.0.2.1"
+            role: "gateway"
+          - name: "AZ1-DB-Server"
+            ip: "10.0.2.10"
+            role: "database"
+
+  az2:
+    name: "AZ2"
+    cidr: "10.0.16.0/20"
+    subnets:
+      public:
+        name: "AZ2-Public"
+        cidr: "10.0.16.0/24"
+        gateway: "10.0.16.1"
+        devices:
+          - name: "AZ2-Router"
+            ip: "10.0.16.1"
+            role: "gateway"
+          - name: "AZ2-NAT"
+            ip: "10.0.16.2"
+            role: "nat"
+          - name: "AZ2-LB"
+            ip: "10.0.16.10"
+            role: "load-balancer"
+      private_app:
+        name: "AZ2-Private-App"
+        cidr: "10.0.17.0/24"
+        gateway: "10.0.17.1"
+        devices:
+          - name: "AZ2-Router"
+            ip: "10.0.17.1"
+            role: "gateway"
+          - name: "AZ2-App-Server-1"
+            ip: "10.0.17.10"
+            role: "app-server"
+          - name: "AZ2-App-Server-2"
+            ip: "10.0.17.11"
+            role: "app-server"
+      private_db:
+        name: "AZ2-Private-DB"
+        cidr: "10.0.18.0/24"
+        gateway: "10.0.18.1"
+        devices:
+          - name: "AZ2-Router"
+            ip: "10.0.18.1"
+            role: "gateway"
+          - name: "AZ2-DB-Server"
+            ip: "10.0.18.10"
+            role: "database"
+
+  az3:
+    name: "AZ3"
+    cidr: "10.0.32.0/20"
+    subnets:
+      public:
+        name: "AZ3-Public"
+        cidr: "10.0.32.0/24"
+        gateway: "10.0.32.1"
+        devices:
+          - name: "AZ3-Router"
+            ip: "10.0.32.1"
+            role: "gateway"
+          - name: "AZ3-NAT"
+            ip: "10.0.32.2"
+            role: "nat"
+          - name: "AZ3-LB"
+            ip: "10.0.32.10"
+            role: "load-balancer"
+      private_app:
+        name: "AZ3-Private-App"
+        cidr: "10.0.33.0/24"
+        gateway: "10.0.33.1"
+        devices:
+          - name: "AZ3-Router"
+            ip: "10.0.33.1"
+            role: "gateway"
+          - name: "AZ3-App-Server-1"
+            ip: "10.0.33.10"
+            role: "app-server"
+          - name: "AZ3-App-Server-2"
+            ip: "10.0.33.11"
+            role: "app-server"
+      private_db:
+        name: "AZ3-Private-DB"
+        cidr: "10.0.34.0/24"
+        gateway: "10.0.34.1"
+        devices:
+          - name: "AZ3-Router"
+            ip: "10.0.34.1"
+            role: "gateway"
+          - name: "AZ3-DB-Server"
+            ip: "10.0.34.10"
+            role: "database"
+
+  az4:
+    name: "AZ4"
+    cidr: "10.0.48.0/20"
+    subnets:
+      public:
+        name: "AZ4-Public"
+        cidr: "10.0.48.0/24"
+        gateway: "10.0.48.1"
+        devices:
+          - name: "AZ4-Router"
+            ip: "10.0.48.1"
+            role: "gateway"
+          - name: "AZ4-NAT"
+            ip: "10.0.48.2"
+            role: "nat"
+          - name: "AZ4-LB"
+            ip: "10.0.48.10"
+            role: "load-balancer"
+      private_app:
+        name: "AZ4-Private-App"
+        cidr: "10.0.49.0/24"
+        gateway: "10.0.49.1"
+        devices:
+          - name: "AZ4-Router"
+            ip: "10.0.49.1"
+            role: "gateway"
+          - name: "AZ4-App-Server-1"
+            ip: "10.0.49.10"
+            role: "app-server"
+          - name: "AZ4-App-Server-2"
+            ip: "10.0.49.11"
+            role: "app-server"
+      private_db:
+        name: "AZ4-Private-DB"
+        cidr: "10.0.50.0/24"
+        gateway: "10.0.50.1"
+        devices:
+          - name: "AZ4-Router"
+            ip: "10.0.50.1"
+            role: "gateway"
+          - name: "AZ4-DB-Server"
+            ip: "10.0.50.10"
+            role: "database"
+
+  az5:
+    name: "AZ5"
+    cidr: "10.0.64.0/20"
+    subnets:
+      public:
+        name: "AZ5-Public"
+        cidr: "10.0.64.0/24"
+        gateway: "10.0.64.1"
+        devices:
+          - name: "AZ5-Router"
+            ip: "10.0.64.1"
+            role: "gateway"
+          - name: "AZ5-NAT"
+            ip: "10.0.64.2"
+            role: "nat"
+          - name: "AZ5-LB"
+            ip: "10.0.64.10"
+            role: "load-balancer"
+      private_app:
+        name: "AZ5-Private-App"
+        cidr: "10.0.65.0/24"
+        gateway: "10.0.65.1"
+        devices:
+          - name: "AZ5-Router"
+            ip: "10.0.65.1"
+            role: "gateway"
+          - name: "AZ5-App-Server-1"
+            ip: "10.0.65.10"
+            role: "app-server"
+          - name: "AZ5-App-Server-2"
+            ip: "10.0.65.11"
+            role: "app-server"
+      private_db:
+        name: "AZ5-Private-DB"
+        cidr: "10.0.66.0/24"
+        gateway: "10.0.66.1"
+        devices:
+          - name: "AZ5-Router"
+            ip: "10.0.66.1"
+            role: "gateway"
+          - name: "AZ5-DB-Server"
+            ip: "10.0.66.10"
+            role: "database"
+
+core_devices:
+  edge_router:
+    name: "Edge-Router"
+    role: "internet-gateway"
+    interfaces:
+      outside:
+        description: "ISP Connection"
+        ip: "DHCP or Public IP"
+      inside:
+        description: "Core Router Uplink"
+        ip: "To be documented"
+
+  core_router:
+    name: "Core-Router"
+    role: "inter-az-routing"
+    interfaces:
+      edge_uplink:
+        description: "Edge Router Connection"
+        ip: "To be documented"
+      az1:
+        description: "AZ1 Router Connection"
+        ip: "To be documented"
+      az2:
+        description: "AZ2 Router Connection"
+        ip: "To be documented"
+      az3:
+        description: "AZ3 Router Connection"
+        ip: "To be documented"
+      az4:
+        description: "AZ4 Router Connection"
+        ip: "To be documented"
+      az5:
+        description: "AZ5 Router Connection"
+        ip: "To be documented"
